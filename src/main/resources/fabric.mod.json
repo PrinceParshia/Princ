@@ -1,0 +1,27 @@
+{
+	"schemaVersion": 1,
+	"id": "princ",
+	"version": "${version}",
+	"name": "Princ",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"PrinceParshia"
+	],
+	"license": "All Rights Reserved",
+	"icon": "princ.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"princ.library.Princ"
+		]
+	},
+	"mixins": [
+		"princ.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "princ.library.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"OptionInstanceMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
