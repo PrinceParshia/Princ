@@ -9,7 +9,7 @@ import net.minecraft.client.Minecraft;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-public class KeyMappingHelper {
+public class PrincKeyMappingHelper {
     public static void registerKeyMapping(String id, InputConstants.Type type, int defaultKey, String category, BiConsumer<Minecraft, KeyMapping> onEndTick) {
         KeyMapping thisKey = new KeyMapping(
                 id,
@@ -25,7 +25,7 @@ public class KeyMappingHelper {
         });
     }
 
-    public static void registerOwnKeyMapping(KeyMapping key, Consumer<Minecraft> onEndTick) {
+    public static void registerExternalKeyMapping(KeyMapping key, Consumer<Minecraft> onEndTick) {
         KeyBindingHelper.registerKeyBinding(key);
         ClientTickEvents.END_CLIENT_TICK.register(onEndTick::accept);
     }

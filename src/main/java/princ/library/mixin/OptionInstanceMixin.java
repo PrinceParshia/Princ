@@ -11,6 +11,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import princ.library.Princ;
+
+// This is not registered yet! Just an example...
 
 @Mixin(OptionInstance.class)
 public class OptionInstanceMixin<T> {
@@ -21,12 +24,16 @@ public class OptionInstanceMixin<T> {
     @Shadow
     T value;
 
+    // Allow saving invalid vlaues (only for the gamma).
+
     @Inject(method = "codec", at = @At("HEAD"), cancellable = true)
     private void codec(CallbackInfoReturnable<Codec<Double>> cir) {
         if (caption.getString().equals(I18n.get("options.gamma"))) {
             cir.setReturnValue(Codec.DOUBLE);
         }
     }
+
+    // Allow using invalid vlaues (only for the gamma).
 
     @Inject(method = "set", at = @At("HEAD"), cancellable = true)
     private void set(T object, CallbackInfo ci) {
